@@ -31,7 +31,7 @@ public class TestMaxGroup {
         // 调用maxGroup方法查找最大分组数
         int result = maxGroup(arr);
         // 打印结果
-        System.out.println("最大分组数: "+result);
+        System.out.println("最大分组数: " + result);
     }
 
     /**
@@ -93,7 +93,7 @@ public class TestMaxGroup {
         }
 
         if (goal == 0) {
-            System.out.println("find groupId " + groupId + ": " + printGroup(arr, aux,groupId));
+            System.out.println("find groupId " + groupId + ": " + printGroup(arr, aux, groupId));
             // 如果已经分配了所有分组，返回true
             if (groupId == m) {
                 return true;
@@ -126,20 +126,27 @@ public class TestMaxGroup {
     }
 
     private static String printGroup(int[] arr, int[] aux, int groupId) {
+        // 检查输入参数是否有效
         if (arr == null || arr.length == 0 || aux == null || aux.length == 0) {
             return null;
         }
+
+        // 创建一个StringBuilder来构建结果字符串
         StringBuilder sb = new StringBuilder();
         sb.append("[");
 
+        // 遍历辅助数组aux，找到属于指定groupId的元素
         for (int i = 0; i < aux.length; i++) {
             if (aux[i] == groupId) {
+                // 将属于groupId的元素添加到字符串中
                 sb.append(arr[i]).append(",");
             }
         }
-
+        // 删除最后一个多余的逗号
         sb.deleteCharAt(sb.length() - 1);
+        // 添加分组结束符
         sb.append("]");
+        // 返回构建的字符串表示该分组的元素
         return sb.toString();
     }
 }
