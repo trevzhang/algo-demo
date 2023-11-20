@@ -1,16 +1,33 @@
 package com.trevzhang.demo;
 
 /**
- * 数组均分 - 字节面试题
+ * 数组均分 - 字节飞书面试题
  * 给定一个整数数组，长度为n，将其分为m份，使各份的和相等，求m的最大值
  * 示例：数组{3, 2, 4, 3, 6}，可以分成{3, 2, 4, 3, 6}、{3, 6}、{2, 4, 3}，所以m的最大值为3
  */
 public class ArrayPartition {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{3, 2, 4, 3, 6};
-        int result = maxGroup(arr);
-        System.out.println(result);
+        // int[] arr = new int[]{3, 2, 4, 3, 6};
+        // int result = maxGroup(arr);
+        // System.out.println(result);
+
+        int[][] testCases = {
+            {3, 2, 4, 3, 6}, // 输出应该是3
+            {1, 2, 3, 4, 5, 6}, // 输出应该是3
+            {5, 5, 5, 5}, // 输出应该是4
+            {1, 1, 1, 1, 1, 1, 1}, // 输出应该是7
+            {2, 2, 2, 2, 3, 3}, // 输出应该是2
+            {4, 5, 6, 7, 8}, // 输出应该是2
+            {10, 10, 10}, // 输出应该是3
+            {7, 7, 7, 7, 7, 7}, // 输出应该是6
+            {8, 1, 7, 2, 6, 3, 5}, // 输出应该是4
+            {12, 12, 6, 6, 6, 6} // 输出应该是4
+        };
+
+        for (int[] testCase : testCases) {
+            System.out.println(maxGroup(testCase));
+        }
     }
 
     /**
